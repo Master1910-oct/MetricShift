@@ -1,0 +1,10 @@
+{
+  "name": "metric-shift",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm --prefix metric-shift-frontend-only run build",
+    "dev": "npm --prefix metric-shift-frontend-only run dev",
+    "lint": "npm --prefix metric-shift-frontend-only run lint"
+  }
+}

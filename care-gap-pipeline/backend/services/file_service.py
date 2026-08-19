@@ -1,4 +1,4 @@
-﻿"""
+"""
 Secure file upload service.
 Handles upload validation, storage, and run ID generation.
 Never exposes internal filesystem paths to the client.
@@ -14,7 +14,15 @@ from fastapi import UploadFile, HTTPException
 # Configuration (from environment, with safe defaults)
 # ─────────────────────────────────────────────────────────────────────────────
 
-UPLOAD_BASE_DIR = os.environ.get("UPLOAD_BASE_DIR", "uploads")
+def _get_upload_base_dir() -> str:
+    env_val = os.environ.get("UPLOAD_BASE_DIR")
+    if env_val:
+        return env_val
+    if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+        return "/tmp/uploads"
+    return "uploads"
+
+UPLOAD_BASE_DIR = _get_upload_base_dir()
 MAX_UPLOAD_SIZE_BYTES = 50 * 1024 * 1024   # 50 MB
 ALLOWED_EXTENSIONS = {".xlsx", ".xls"}
 

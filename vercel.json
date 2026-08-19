@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "cd metric-shift-frontend-only && npm install && npm run build",
+  "outputDirectory": "metric-shift-frontend-only/dist",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

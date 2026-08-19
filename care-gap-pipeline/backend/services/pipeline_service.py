@@ -39,7 +39,15 @@ from backend.services.result_persistence_service import ResultPersistenceService
 # Configuration
 # ─────────────────────────────────────────────────────────────────────────────
 
-OUTPUT_BASE_DIR = os.environ.get("OUTPUT_BASE_DIR", "run_outputs")
+def _get_output_base_dir() -> str:
+    env_val = os.environ.get("OUTPUT_BASE_DIR")
+    if env_val:
+        return env_val
+    if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+        return "/tmp/run_outputs"
+    return "run_outputs"
+
+OUTPUT_BASE_DIR = _get_output_base_dir()
 MODELS_DIR = os.environ.get("MODELS_DIR", "models")
 
 # ─────────────────────────────────────────────────────────────────────────────
