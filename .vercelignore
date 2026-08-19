@@ -1,0 +1,35 @@
+# -- Vercel Deployment Exclusions -----------------------------
+# Prevents bundling frontend source, node_modules, and local data into the Python function
+
+# Node modules & frontend source (frontend static output is in metric-shift-frontend-only/dist)
+node_modules/
+**/node_modules/
+metric-shift-frontend-only/src/
+metric-shift-frontend-only/public/
+
+# Local data workbooks & runtime outputs (Supabase is the database)
+care-gap-pipeline/run_outputs/
+care-gap-pipeline/uploads/
+care-gap-pipeline/scratch/
+care-gap-pipeline/outputs/
+*.xlsx
+*.xls
+*.csv
+!care-gap-pipeline/data/sample_*.xlsx
+
+# Python caches and virtual environments
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/.pytest_cache/
+**/venv/
+**/.venv/
+**/env/
+
+# Tests & repo files not needed in production lambda
+tests/
+**/tests/
+.git/
+.gitignore
+README.md
+
