@@ -1,0 +1,50 @@
+# ── Python bytecode & cache ──────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ── Environments & secrets ───────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+venv/
+.venv/
+env/
+ENV/
+
+# ── Runtime outputs & uploads ────────────────────────────────
+run_outputs/
+uploads/
+scratch/
+outputs/
+*.log
+
+# ── Local data / Excel workbooks (authoritative source is Supabase) ─
+*.xlsx
+*.xls
+*.csv
+!data/sample_*.xlsx
+
+# ── Nested frontend (frontend is in its own repo) ─────────────
+frontend/
+
+# ── Node / Frontend build artifacts ──────────────────────────
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ── IDE & OS ─────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
