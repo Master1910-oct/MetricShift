@@ -32,9 +32,6 @@ outputs/
 *.csv
 !data/sample_*.xlsx
 
-# ── Nested frontend (frontend is in its own repo) ─────────────
-frontend/
-
 # ── Node / Frontend build artifacts ──────────────────────────
 node_modules/
 dist/
@@ -48,3 +45,5 @@ dist-ssr/
 Thumbs.db
 Desktop.ini
 
+frontend/.env.development
+frontend/.env.production
